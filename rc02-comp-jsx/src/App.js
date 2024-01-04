@@ -6,7 +6,7 @@ function App() {
   console.log("deneme");
   return (
     <div className="App">
-      <h1>Hello React</h1>
+      <h1 style={{color:"red",backgroundColor:"black"}}>Hello React</h1>
       <Header />
       <Content />
       <Footer />
