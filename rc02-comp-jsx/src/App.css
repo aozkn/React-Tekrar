@@ -1,0 +1,25 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+h3{
+    color: rgb(213, 202, 49);
+}
+
+header{
+    padding: 3rem;
+    background-color: purple;
+    color: white;
+
+}
+
+footer{
+    position: absolute;
+    width: 100%;
+    background-color: black;
+    color: aliceblue;
+    padding: 2rem;
+   
+}
