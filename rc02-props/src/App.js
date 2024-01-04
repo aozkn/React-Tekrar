@@ -1,9 +1,14 @@
+import Person from "./components/Person";
+
 function App() {
   return (
-    <div className="App">
-      <h1>Hello React</h1>
-    </div>
-  )
+    <>
+      <Person name="alakara" img="https://cdn.pixabay.com/photo/2023/07/29/06/28/bird-8156308_640.jpg" color="beyaz" />
+      
+      <Person name="ala" img="https://cdn.pixabay.com/photo/2023/07/29/06/28/bird-8156308_640.jpg" color="beyaz" />
+      
+    </>
+  );
 }
 
-export default App
+export default App;
