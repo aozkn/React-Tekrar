@@ -1,22 +1,58 @@
+//* ==================== HOOKS ===============================
+//! Hook'lar fonksiyonel component'ler icerisinde state'leri kullanmamiza
+//! olanak saglayan ozel fonksiyonlardir.
+//! React 16.8 versiyonu ile gelmistir ve geldikten sonra Class-componentler'in
+//! kullanimi cok azaltmistir.
+
+//? React'ta useState(), useEffect(), useContext() gibi bir cok built-in
+//? Hook bulunmaktadir. Ayrica custom hook tanimlamak da mumkundur.
+
+//* Hook Kullanim Kurallari:
+//* 1. İlk olarak import edilmeliler. import { useState } from "react";
+//* 2. Hook'lar ust seviyede kullanilmalidir. Yani Hook'lar bir
+//*    dongunun, kosul cumleciginin ve icice fonksiyonlarin icerisinde
+//*    kullanilmamalidir.
+//* 3. Hook'lar sadece React Fonksiyonel componentleri icerisinde cagrilmalidir.
+//*    Normal Javascript fonksiyonlari icerisinde cagrilmamalidir
+//*    (Custom hook'lar icerisinde bir hook cagrilabilir)
+//?    https://react.dev/reference/react
+//* =============================================================
+
 import React, { useState } from "react";
 
 const UseStateCounter = () => {
   //?Count adinda bir state tanimladik .Count'un baslangic degerini 0 olarak atadik.
   const [count, setCount] = useState(0);
   // let count = 0
-  const handleInc = () => {
+  const handleInc = (e) => {
     // count=count +1
-
+    //!Bir state'in degeri sadece setter metodu ile olabilir.
     setCount(count + 1);
-    console.log(count);
+    console.log(e);
+  };
+  const handleD = (e) => {
+    console.log(e);
+    setCount(0);
+  };
+  const handleDec = () => {
+    if (count <= 0) {
+      alert("Count cant be lower than 0");
+    } else {
+      setCount(count - 1);
+    }
   };
   return (
     <div>
       <h2>USE STATE HOOK</h2>
       <h1>Count:{count}</h1>
       <button onClick={handleInc}>INC</button>
-      <button>CLR</button>
-      <button>DEC</button>
+      {/* <button onDoubleClick={() => setCount(0)}>CLR</button> */}
+      <button onDoubleClick={handleD}>CLR</button>
+
+      {/* Eger setCount metodunu callback ile yazmazsak bu metot ilk acilistan itibaren doğrudan cagirilmis olur. Bu durumda da count state'inin gunceller. State guncellendigi icinde component re-render olur. Re-render ise yeninden setCount araciligi state'in guncellenmesine yol acar ve sonsuz donguye girer */}
+
+      <button onClick={() => count > 0 && setCount(count - 1)}>DEC</button>
+      {/* <button onClick={handleDec}>Dec</button> */}
     </div>
   );
 };

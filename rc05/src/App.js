@@ -1,15 +1,16 @@
-import Events from "./1-Events/Events"
-import Counter from "./classComponent/Counter"
-import UseStateCounter from "./useState/UseStateCounter"
-
+import Events from "./1-Events/Events";
+import Counter from "./classComponent/Counter";
+import UseStateCounter from "./useState/UseStateCounter";
+import UseStateObject from "./useState/UseStateObject";
 function App() {
   return (
-    <div >
+    <div>
       {/* <Events/>
       <Counter/> */}
-      <UseStateCounter/>
+      {/* <UseStateCounter/> */}
+      <UseStateObject />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
