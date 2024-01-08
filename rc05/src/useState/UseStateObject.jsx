@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import UseStateCounter from "./UseStateCounter";
 
 const UseStateObject = () => {
   //   const [name, setName] = useState("Ali");
@@ -69,6 +70,8 @@ const UseStateObject = () => {
       </button>
 
       <button onClick={handleToggle}>Toggle</button>
+      {/* {toggle && <textarea name="" id="" cols="30" rows="30"></textarea>} */}
+      {toggle && <UseStateCounter/>}
     </div>
   );
 };
