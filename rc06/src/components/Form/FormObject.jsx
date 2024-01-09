@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 
-const Form = () => {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const handleUserName = (e) => {
+const FormObject = () => {
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+
+  const { username, email, password } = formData;
+
+  const handleFormData = (e) => {
     // console.log(e.target.value);
-    setUsername(e.target.value);
+    // console.log(e.target.name);
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+    // setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-  };
   const handleSubmit = (e) => {
     e.preventDefault();
     alert(`
@@ -21,13 +25,15 @@ const Form = () => {
     password:${password}
 
     `);
-    setEmail("");
-    setPassword("");
-    setUsername("");
+    setFormData({
+      username: "",
+      email: "",
+      password: "",
+    });
   };
   return (
     <div className="container mt-4 bg-success  rounded">
-      <h2 className="text-center text-dark">FORMS IN REACT</h2>
+      <h2 className="text-center text-dark">FORM OBJECT IN REACT</h2>
       <form onSubmit={handleSubmit}>
         <div classname="mb-3">
           <label htmlfor="username" className="form-label">
@@ -38,8 +44,9 @@ const Form = () => {
             className="form-control"
             id="username"
             aria-describedby="emailHelp"
-            onChange={handleUserName}
+            onChange={handleFormData}
             value={username}
+            name="username"
           />
         </div>
         <div classname="mb-3">
@@ -47,11 +54,12 @@ const Form = () => {
             Email address: <span className="text-danger">{email}</span>
           </label>
           <input
+            name="email"
             type="email"
             className="form-control"
             id="email"
             aria-describedby="emailHelp"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={handleFormData}
             value={email}
           />
         </div>
@@ -60,10 +68,11 @@ const Form = () => {
             Password
           </label>
           <input
+            name="password"
             type="password"
             className="form-control"
             id="password"
-            onChange={handlePassword}
+            onChange={handleFormData}
             value={password}
           />
         </div>
@@ -77,4 +86,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default FormObject;

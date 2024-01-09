@@ -1,13 +1,15 @@
 import Form from "./components/Form/Form";
+import FormObject from "./components/Form/FormObject";
 import KeyboardClipboard from "./components/keyboardClipboard/KeyboardClipboard";
 import MouseEvents from "./components/mouseEvents/MouseEvents";
 
 function App() {
   return (
     <>
-      <Form/>
-      <KeyboardClipboard/>
-      <MouseEvents/>
+      {/* <Form/> */}
+      <FormObject />
+      {/* <KeyboardClipboard/>
+      <MouseEvents/> */}
     </>
   );
 }
