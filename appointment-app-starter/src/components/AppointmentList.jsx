@@ -10,14 +10,19 @@ const AppointmentList = ({ apps }) => {
         Appointment List
       </h3>
       {apps.map(({ id, patient, consulted, day, doctor }) => (
-        <div key={id} className={consulted ? "appointments consulted" : "appointments"}>
-          <Row >
-            <Col>
+        <div
+          key={id}
+          className={consulted ? "appointments consulted" : "appointments"}
+        >
+          <Row className="justify-content-center align-items-center">
+            <Col xs={12} sm={12} md={6}>
               <h4>{patient}</h4>
               <h4>{doctor}</h4>
             </Col>
-            <Col>{day}</Col>
             <Col>
+              <h5>{day}</h5>
+            </Col>
+            <Col className="text-end">
               <MdDelete className="text-danger fs-1" />
             </Col>
           </Row>
