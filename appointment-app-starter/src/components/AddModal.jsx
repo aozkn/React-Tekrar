@@ -1,30 +1,58 @@
-import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import Form from "react-bootstrap/Form";
+import { useState } from "react";
 
-function AddModal() {
-  const [show, setShow] = useState(false);
+function AddModal({ show, handleClose }) {
+  const [name, setName] = useState("");
+  const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  //?How to show todays date with yyyy/mm/dd
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    handleClose();
+  };
+  //   console.log(name, date);
   return (
     <>
-      
-
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Appointment For ...</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
+        <Modal.Body>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group className="mb-3" controlId="name">
+              <Form.Label>Patient Name</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="date">
+              <Form.Label>Date</Form.Label>
+              <Form.Control
+                type="date"
+                placeholder="Date"
+                onChange={(e) => setDate(e.target.value)}
+                value={date}
+              />
+            </Form.Group>
+
+            <div>
+              <Button variant="primary" type="submit">
+                Save
+              </Button>
+              <Button variant="danger" onClick={handleClose}>
+                Close
+              </Button>
+            </div>
+          </Form>
+        </Modal.Body>
       </Modal>
     </>
   );
