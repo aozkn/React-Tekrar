@@ -14,7 +14,7 @@ function AddModal({ show, handleClose, apps, setApps, drName }) {
     setApps([
       ...apps,
       {
-        id: apps.lenght+ 1,
+        id: new Date().getTime(),
         patient: name,
         day: date,
         consulted: false,
@@ -40,6 +40,7 @@ function AddModal({ show, handleClose, apps, setApps, drName }) {
                 placeholder="Enter Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                required
               />
             </Form.Group>
 
@@ -50,6 +51,7 @@ function AddModal({ show, handleClose, apps, setApps, drName }) {
                 placeholder="Date"
                 onChange={(e) => setDate(e.target.value)}
                 value={date}
+                required
               />
             </Form.Group>
 
