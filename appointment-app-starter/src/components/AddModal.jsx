@@ -21,7 +21,7 @@ function AddModal({ show, handleClose, apps, setApps, drName }) {
         doctor: drName,
       },
     ]);
-
+    setName("");
     handleClose();
   };
   //   console.log(name, date);
