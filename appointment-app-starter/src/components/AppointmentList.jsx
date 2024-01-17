@@ -2,8 +2,11 @@ import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/esm/Col";
 import Row from "react-bootstrap/esm/Row";
 import { MdDelete } from "react-icons/md";
-const AppointmentList = ({ apps }) => {
-  console.log(apps);
+const AppointmentList = ({ apps, setApps }) => {
+  const handleDelete = (id) => {
+    setApps();
+  };
+  // console.log(apps);
   return (
     <Container className="p-2">
       <h3 className="display-6 mb-2" style={{ color: "rgb(166, 18, 189)" }}>
@@ -23,7 +26,11 @@ const AppointmentList = ({ apps }) => {
               <h5>{day}</h5>
             </Col>
             <Col className="text-end">
-              <MdDelete className="text-danger fs-1" />
+              <MdDelete
+                type="button"
+                className="text-danger fs-1"
+                onClick={() => handleDelete(id)}
+              />
             </Col>
           </Row>
         </div>
