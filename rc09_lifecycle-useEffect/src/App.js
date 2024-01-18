@@ -9,9 +9,9 @@ function App() {
   const [visible, setVisible] = useState(false)
   return (
     <div className="container text-center mt-4">
-      <button className="btn btn-danger" onClick={() => setVisible(!visible)}> 
+      {/* <button className="btn btn-danger" onClick={() => setVisible(!visible)}> 
        Show/Hide
-      </button>
+      </button> */}
 
        {/* {visible && <LifeCycleMethods />}  */}
 
