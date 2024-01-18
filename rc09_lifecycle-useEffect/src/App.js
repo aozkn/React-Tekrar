@@ -2,6 +2,7 @@ import LifeCycleMethods from "./components/LifeCycleMethods"
 import { useState } from "react"
 // import UseEffectHook from "./components/UseEffectHook"
 import User from "./components/User"
+import UseEffectHook1 from "./components/UseEffectHook1"
 
 function App() {
   const [visible, setVisible] = useState(false)
@@ -11,9 +12,9 @@ function App() {
        Show/Hide
       </button>
 
-       {visible && <LifeCycleMethods />} 
+       {/* {visible && <LifeCycleMethods />}  */}
 
-      {/* {visible && <UseEffectHook />} */}
+      {visible && <UseEffectHook1/>}
 
       {/* <User /> */}
     </div>
