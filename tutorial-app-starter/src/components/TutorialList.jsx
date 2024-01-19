@@ -1,7 +1,8 @@
 import { FaEdit } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
+import axios from "axios";
 
-const TutorialList = ({tutorials}) => {
+const TutorialList = ({ tutorials, getApi }) => {
   // const tutorials = [
   //   {
   //     id: 1,
@@ -14,7 +15,22 @@ const TutorialList = ({tutorials}) => {
   //     description: "JS library for UI design",
   //   },
   // ]
+  const handleDelete = async (id) => {
+    const BASE_URL = "https://tutorial-api.fullstack.clarusway.com/tutorials/";
+    try {
+      const res = await axios.delete(`${BASE_URL}${id}/`);
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
+    getApi();
+  };
 
+  //?Another way of doing
+  // const handleDelete = async(id)=>{
+  //   const BASE_URL = "https://tutorial-api.fullstack.clarusway.com/tutorials";
+  //  const res =await axios.delete(`${BASE_URL}/${id}/`)
+  // }
   return (
     <div className="container mt-4">
       <table className="table table-striped">
@@ -43,6 +59,7 @@ const TutorialList = ({tutorials}) => {
                     className="me-2 text-warning"
                   />
                   <AiFillDelete
+                    onClick={() => handleDelete(id)}
                     size={22}
                     type="button"
                     className="text-danger "
