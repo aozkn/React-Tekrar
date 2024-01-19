@@ -1,10 +1,14 @@
-import { useState } from "react"
+import { useState } from "react";
 
 const AddTutorial = () => {
-  const [title, setTitle] = useState("")
-  const [description, setDescription] = useState("")
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
 
-  const handleSubmit = (e) => {}
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newTutor = { title: "title", description: "description" };
+    console.log(newTutor);
+  };
 
   return (
     <div className="container text-center mt-4">
@@ -43,7 +47,7 @@ const AddTutorial = () => {
         </button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default AddTutorial
+export default AddTutorial;
