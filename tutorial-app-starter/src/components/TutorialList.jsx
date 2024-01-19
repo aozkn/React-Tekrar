@@ -58,6 +58,9 @@ const TutorialList = ({ tutorials, getApi }) => {
                     size={20}
                     type="button"
                     className="me-2 text-warning"
+
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
                   />
                   <AiFillDelete
                     onClick={() => handleDelete(id)}
