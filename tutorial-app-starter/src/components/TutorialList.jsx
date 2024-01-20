@@ -1,9 +1,13 @@
 import { FaEdit } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
 import axios from "axios";
-import Modal from "./Modal";
+import EditModal from "./EditModal";
+import { useState } from "react";
 
 const TutorialList = ({ tutorials, getApi }) => {
+  const [editItem, setEditItem] = useState("");
+
+  console.log(editItem);
   // const tutorials = [
   //   {
   //     id: 1,
@@ -16,8 +20,9 @@ const TutorialList = ({ tutorials, getApi }) => {
   //     description: "JS library for UI design",
   //   },
   // ]
+  const BASE_URL = "https://tutorial-api.fullstack.clarusway.com/tutorials/";
+
   const handleDelete = async (id) => {
-    const BASE_URL = "https://tutorial-api.fullstack.clarusway.com/tutorials/";
     try {
       const res = await axios.delete(`${BASE_URL}${id}/`);
       console.log(res);
@@ -32,6 +37,16 @@ const TutorialList = ({ tutorials, getApi }) => {
   //   const BASE_URL = "https://tutorial-api.fullstack.clarusway.com/tutorials";
   //  const res =await axios.delete(`${BASE_URL}/${id}/`)
   // }
+
+  // const editTutor = async (tutor) => {
+  //   try {
+  //     await axios.put(`${BASE_URL}${tutor.id}/`, tutor);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  //   getApi();
+  // };
+
   return (
     <div className="container mt-4">
       <table className="table table-striped">
@@ -58,9 +73,18 @@ const TutorialList = ({ tutorials, getApi }) => {
                     size={20}
                     type="button"
                     className="me-2 text-warning"
-
                     data-bs-toggle="modal"
                     data-bs-target="#exampleModal"
+                    //?Manual Method
+                    // onClick={() =>
+                    //   editTutor({
+                    //     id: 1683,
+                    //     title: "react",
+                    //     description: "react-1",
+                    //   })
+                    // }
+
+                    onClick={() => setEditItem(item)}
                   />
                   <AiFillDelete
                     onClick={() => handleDelete(id)}
@@ -74,7 +98,7 @@ const TutorialList = ({ tutorials, getApi }) => {
           })}
         </tbody>
       </table>
-      <Modal/>
+      <EditModal editItem={editItem} getApi={getApi}/>
     </div>
   );
 };
