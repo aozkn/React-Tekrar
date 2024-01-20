@@ -10,15 +10,22 @@ const EditModal = ({ editItem, getApi }) => {
   // console.log(NewDescription);
   // console.log(title);
   // console.log(description);
+  //!State degiskeninin degeri , 1.render ile initialState
+  //!parametresinin ilk degerini alir .Dolayisiyla bu durumda
+  //!prop'tan gelen ilk deger state'e aktarilir.
+  //!sonradan degisen props degerleri useState'e aktarilmaz.
+  //!Eger props'tan gelen degerleri her degisimde useState'e
+  //!aktarmak istersek useEffect hook'unu componentDidUpdate gibi kullanabiliriz.
+
   //?componenetDidUpdate
   useEffect(() => {
     setTitle(NewTitle);
     setDescription(NewDescription);
   }, [NewTitle, NewDescription]);
-  const BASE_URL = "https://tutorial-api.fullstack.clarusway.com/tutorials/";
+  const BASE_URL = "https://tutorial-api.fullstack.clarusway.com/tutorials";
   const editTutor = async (tutor) => {
     try {
-      await axios.put(`${BASE_URL}${id}/`, tutor);
+      await axios.put(`${BASE_URL}/${id}/`, tutor);
     } catch (error) {
       console.log(error);
     }
@@ -28,7 +35,6 @@ const EditModal = ({ editItem, getApi }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     editTutor({ title, description });
-    
   };
   return (
     <div>
@@ -87,7 +93,11 @@ const EditModal = ({ editItem, getApi }) => {
                   />
                 </div>
                 <div className="text-end">
-                  <button type="submit" className="btn btn-danger" data-bs-dismiss="modal">
+                  <button
+                    type="submit"
+                    className="btn btn-danger"
+                    data-bs-dismiss="modal"
+                  >
                     Submit
                   </button>
                 </div>
