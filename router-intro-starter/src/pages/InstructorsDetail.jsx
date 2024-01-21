@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation, useParams } from "react-router";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const InstructorsDetail = () => {
   //   let param = useParams();
