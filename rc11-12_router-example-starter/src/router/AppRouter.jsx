@@ -11,6 +11,8 @@ import Nav from "../components/Nav";
 import Fullstack from "../pages/Fullstack";
 import Aws from "../pages/Aws";
 import NextJs from "../pages/NextJs";
+import PrivateRoute from "./PrivateRoute";
+import Login from "../pages/Login";
 
 const AppRouter = () => {
   return (
@@ -20,15 +22,17 @@ const AppRouter = () => {
         <Route path="/" element={<Home />} />
         <Route path="/path" element={<Path />}>
           <Route path="fullstack" element={<Fullstack />}>
-            <Route path="react" element={<React />} />
+            <Route index element={<React />} />
             <Route path="nextjs" element={<NextJs />} />
           </Route>
           <Route index element={<Fullstack />} />
           <Route path="aws" element={<Aws />} />
         </Route>
-
-        <Route path="/people" element={<People />} />
-        <Route path="/people/:id" element={<PersonDetail />} />
+        <Route element={<PrivateRoute />}>
+          <Route path="/people" element={<People />} />
+          <Route path="/people/:id" element={<PersonDetail />} />
+        </Route>
+        <Route path="/login" element={<Login />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

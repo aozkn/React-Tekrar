@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 const Fullstack = () => {
   return (
@@ -16,7 +16,15 @@ const Fullstack = () => {
       <div>
         <button className="btn btn-outline-success mt-4">Learn More</button>
       </div>
-      <Outlet/>
+      <div>
+        <Link to="" className="btn btn-success w-25 m-3">
+          React
+        </Link>
+        <Link to="nextjs" className="btn btn-warning w-25 m-3">
+          NextJs
+        </Link>
+      </div>
+      <Outlet />
     </div>
   );
 };
