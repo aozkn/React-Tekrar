@@ -4,6 +4,9 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
 const Login = () => {
+
+  //!LOCAL STATE
+  
   const [user, setUser] = useState({ email: "", password: "" });
 
   const handleSubmit = (e) => {
