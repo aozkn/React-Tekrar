@@ -31,3 +31,18 @@ export const reducer = (initialState, action) => {
 //? action
 //!  {type:"Start"}
 //!  {type:"Success", payload:catImage}
+
+//?rxreducer calls this reducer fonks
+// const initialState = {}
+
+// export default (state = initialState, { type, payload }) => {
+//   switch (type) {
+
+//   case first:
+//     return { ...state, ...payload }
+
+//   default:
+//     return state
+//   }
+// }
+
