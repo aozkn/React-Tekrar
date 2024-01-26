@@ -8,8 +8,8 @@ const Login = ({ setUser }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email,password);
-   
+    console.log(email, password);
+
     setUser({ email, password });
     navigate("/people");
   };
