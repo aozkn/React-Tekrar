@@ -3,12 +3,13 @@ export const initialState = {
   catImage: "",
   error: "",
 };
+//! PURE JS FONKSIYON
+//?Stateleri degistiren fonkslar pure fonksiyon olmalidir.
 
 export const reducer = (initialState, action) => {
   switch (action.type) {
     case "Start":
       return { ...initialState, loading: true };
-      break;
     case "Success":
       return {
         ...initialState,
