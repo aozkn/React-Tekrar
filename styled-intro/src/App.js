@@ -24,6 +24,9 @@ function App() {
       </Flex>
       <Flex>
         <StyledLink href="https://www.clarusway.com">Clarusway</StyledLink>
+        <StyledLink react href="https://www.react.dev">
+          React
+        </StyledLink>
       </Flex>
     </>
   );
