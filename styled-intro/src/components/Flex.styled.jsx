@@ -9,7 +9,9 @@ const Flex = styled.div`
   max-width: 1000px;
   margin: auto;
   background-color: ${(props) => props.bg || "transparent"};
-  /* background-color: ${({bg}) => bg || "transparent"}; */
+  margin-top: 1rem;
+  border-radius: 30px;
+  /* background-color: ${({ bg }) => bg || "transparent"}; */
 `;
 
 export default Flex;
