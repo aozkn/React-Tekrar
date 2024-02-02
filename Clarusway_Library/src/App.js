@@ -1,10 +1,13 @@
-import AppRouter from './router/AppRouter';
-
+import AppRouter from "./router/AppRouter";
+import { ThemeProvider } from "styled-components";
+import { LightTheme } from "./styles/theme";
+import { GlobalStyles } from "./styles/Global.styles";
 function App() {
   return (
-    <div className="App">
-      <AppRouter/>
-    </div>
+    <ThemeProvider theme={LightTheme}>
+      <GlobalStyles/>
+      <AppRouter />
+    </ThemeProvider>
   );
 }
 
