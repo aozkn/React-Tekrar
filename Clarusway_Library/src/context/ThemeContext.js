@@ -8,10 +8,11 @@ const ThemeContext = createContext();
 //! 2-Sarmalayici (Provider) Component
 const ThemeContextProvider = ({ children }) => {
   // //! Local State
-  
+  const [myTheme, setMyTheme] = useState("light");
 
   const values = {
-   
+    myTheme,
+    setMyTheme,
   };
 
   return (
