@@ -10,6 +10,7 @@ export const LightTheme = {
     detailColor: "rgb(5,5,5)",
     linkHoverColor: "rgb(5,5,5)",
     headerFormColor: "rgba(15, 63, 42, 0.36)",
+    linkActiveColor: "#DC143C",
   },
   breakpoints: {
     lg: "992px",
@@ -26,8 +27,9 @@ export const DarkTheme = {
     detailColor: "white",
     linkHoverColor: "bisque",
     headerFormColor: "rgba(255, 255, 255, 0.46)",
+    linkActiveColor: "#DC143C",
   },
-  screens: {
+  breakpoints: {
     lg: "992px",
   },
 };
