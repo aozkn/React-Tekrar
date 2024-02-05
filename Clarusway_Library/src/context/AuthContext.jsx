@@ -1,6 +1,6 @@
 // Auth Context
 
-import { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext, useEffect } from "react";
 
 //! 1- Login Context'i olusuturuldu
 const AuthContext = createContext();
@@ -8,7 +8,10 @@ const AuthContext = createContext();
 //! 2-Sarmalayici (Provider) Component
 const AuthContextProvider = ({ children }) => {
   // //! Local State
-  const [user, setUser] = useState(false);
+  const [user, setUser] = useState(sessionStorage.getItem("user") || false);
+  useEffect(() => {
+    sessionStorage.setItem("user", user);
+  }, [user]);
 
   const values = {
     user,
