@@ -16,6 +16,8 @@ const Header = () => {
         <SearchInput type="search" placeholder="Search..." />
         <SelectBox>
           <option>All</option>
+          <option>BOOKS</option>
+          <option>MAGAZINES</option>
         </SelectBox>
         <HeaderButton>Search</HeaderButton>
       </HeaderForm>
