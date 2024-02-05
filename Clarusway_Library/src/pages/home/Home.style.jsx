@@ -5,7 +5,7 @@ import Flex from "../../styles/Flex";
 
 export const HomeContainer = styled(Flex)`
   flex-direction: column;
-  margin: 3rem;
+  /* margin: 3rem; */
 `;
 
 export const HomeImage = styled.div`

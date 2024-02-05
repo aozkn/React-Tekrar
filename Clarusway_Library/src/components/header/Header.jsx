@@ -13,7 +13,7 @@ const Header = () => {
     <HeaderContainer>
       <HeaderTitle>BOOKS OR MAGAZINES</HeaderTitle>
       <HeaderForm>
-        <SearchInput />
+        <SearchInput type="search" placeholder="Search..." />
         <SelectBox>
           <option>All</option>
         </SelectBox>
