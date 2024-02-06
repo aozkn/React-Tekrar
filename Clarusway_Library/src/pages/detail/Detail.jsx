@@ -27,10 +27,9 @@ const Detail = () => {
     } catch (error) {}
   };
   useEffect(() => {
-    getDetailData()
-  
-  }, [])
-  
+    getDetailData();
+  }, []);
+
   return (
     <DetailContainer>
       <DetailPart>
