@@ -14,9 +14,9 @@ const Header = () => {
   const { searchInfo, setSearchInfo, getData } = useBooksContext();
 
   const handleChange = (e) => {
-    console.log(e.target);
-    console.log(e.target.name);
-    console.log({ [e.target.name]: e.target.value });
+    // console.log(e.target);
+    // console.log(e.target.name);
+    // console.log({ [e.target.name]: e.target.value });
     setSearchInfo({ ...searchInfo, [e.target.name]: e.target.value }); //inputun name attr ile statedeki key name should be same
   };
 
@@ -24,7 +24,7 @@ const Header = () => {
     e.preventDefault();
     getData();
   };
-  console.log(searchInfo);
+  // console.log(searchInfo);
   return (
     <HeaderContainer>
       <HeaderTitle>BOOKS OR MAGAZINES</HeaderTitle>

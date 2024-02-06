@@ -11,7 +11,7 @@ const Home = () => {
     <HomeContainer>
       <Header />
       {bookData.length ? (
-        <CardContainer>
+        <CardContainer wrap="wrap">
           {bookData.map((item) => (
             <Card key={item.id} item={item} />
           ))}
