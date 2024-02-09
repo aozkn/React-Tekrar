@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 export const AuthContext = createContext();
 
 //* with custom hook
@@ -12,11 +13,13 @@ export const AuthContext = createContext();
 // }
 
 const AuthContextProvider = ({ children }) => {
+  let navigate = useNavigate();
   const createUser = async (email, password) => {
     //? yeni bir kullanıcı oluşturmak için kullanılan firebase metodu
     try {
       let userC = await createUserWithEmailAndPassword(auth, email, password);
       console.log(userC);
+      navigate("/");
     } catch (error) {
       console.log(error.message);
     }
@@ -28,7 +31,9 @@ const AuthContextProvider = ({ children }) => {
   const signIn = async (email, password) => {
     try {
       //? mevcut kullanıcının giriş yapması için kullanılan firebase metodu
-      await signInWithEmailAndPassword(auth, email, password);
+      let signInC = await signInWithEmailAndPassword(auth, email, password);
+      console.log(signInC);
+      navigate("/");
     } catch (error) {
       console.log(error.message);
     }
