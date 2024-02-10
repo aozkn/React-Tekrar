@@ -10,7 +10,7 @@ const Main = () => {
   const { movies, loading, getMovies } = useContext(MovieContext);
   const { currentUser } = useContext(AuthContext);
   const [searchTerm, setSearchTerm] = useState("");
-  console.log(movies);
+  // console.log(movies);
 
   const handleSubmit = (e) => {
     e.preventDefault();
