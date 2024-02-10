@@ -1,15 +1,17 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import iconImg from "../assets/icons/avatar.png";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function Navbar() {
-  const currentUser = {
-    displayName: "Ali Ozkan",
-  };
+  const { LogOut, currentUser } = useContext(AuthContext);
+  // const currentUser = {
+  //   displayName: "Ali Ozkan",
+  // };
   return (
     <>
       <Disclosure
@@ -79,8 +81,9 @@ export default function Navbar() {
                         <span
                           className={classNames(
                             active ? "bg-gray-100" : "",
-                            "block px-4 py-2 text-sm text-gray-700"
+                            "block px-4 py-2 text-sm text-gray-700 cursor-pointer"
                           )}
+                          onClick={() => LogOut()}
                         >
                           Logout
                         </span>

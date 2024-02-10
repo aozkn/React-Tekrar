@@ -11,7 +11,8 @@ const Register = () => {
   const { createUser } = useContext(AuthContext);
   const handleSubmit = (e) => {
     e.preventDefault();
-    createUser(email, password);
+    const displayName = `${name}  ${lastName}`;
+    createUser(email, password, displayName);
   };
 
   return (
