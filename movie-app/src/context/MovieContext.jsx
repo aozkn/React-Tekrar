@@ -1,11 +1,32 @@
-import React, { createContext } from 'react'
+import React, { createContext, useEffect, useState } from "react";
+import axios from "axios";
 
+const MovieContext = createContext();
 
-const MovieContext = createContext()
-const MovieContextProvider = ({children}) => {
+const API_KEY = process.env.REACT_APP_TMDB_KEY;
+const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`;
+
+const MovieContextProvider = ({ children }) => {
+  const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    getMovies(FEATURED_API);
+  }, []);
+
+  const getMovies = (API) => {
+    setLoading(true);
+    axios(API)
+      .then((res) => setMovies(res.data.results))
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
+  };
+
   return (
-    <MovieContext.Provider values={null}>{children}</MovieContext.Provider>
-  )
-}
+    <MovieContext.Provider value={{ movies, getMovies, loading }}>
+      {children}
+    </MovieContext.Provider>
+  );
+};
 
-export default MovieContextProvider
+export default MovieContextProvider;
