@@ -1,9 +1,8 @@
-import React from 'react'
+import React, { memo } from "react";
 
-const HeaderMemo = () => {
-  return (
-    <div className='text-center text-success'>HeaderMemo Componenti</div>
-  )
-}
+const HeaderMemo =  memo(() => {
+  console.log("render=> headermemo");
+  return <div className="text-center text-success">HeaderMemo Componenti</div>;
+});
 
-export default HeaderMemo
+export default HeaderMemo;
