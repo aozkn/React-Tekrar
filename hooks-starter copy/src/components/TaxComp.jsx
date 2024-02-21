@@ -1,9 +1,8 @@
-import React from 'react'
+import React, { memo } from "react";
 
-const TaxComp = () => {
-    return (
-        <div>TaxComp</div>
-    )
-}
+const TaxComp = ({ dataState }) => {
+  console.log("render=> taxData comp.");
+  return <div>TaxComp</div>;
+};
 
-export default TaxComp
+export default memo(TaxComp);
