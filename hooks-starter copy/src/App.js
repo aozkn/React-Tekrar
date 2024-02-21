@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Header from "./components/Header";
 import HeaderMemo from "./components/HeaderMemo";
 import TaxComp from "./components/TaxComp";
@@ -13,7 +13,13 @@ function App() {
   });
   // const taxData = { taxRate: 0.18,
   //   ship: 25,};
-
+  //her render bellekteki refereansı değşiyor
+  const taxDataRef = useRef({
+    taxRate: 0.18,
+    ship: 25,
+  });
+  //hafızada referansı sabit ama kendisi değişebilir olan verileri tanımlamak istiyorsak
+  // console.log(taxDataRef);
   return (
     <div className="container mt-2">
       <div>
@@ -43,7 +49,8 @@ function App() {
       {/* <HeaderMemo user={count} /> */}
       <hr />
       {/* <TaxComp taxData={taxData} /> */}
-      <TaxComp dataState={dataState} />
+      {/* <TaxComp dataState={dataState} /> */}
+      <TaxComp dataState={taxDataRef} />
     </div>
   );
 }
